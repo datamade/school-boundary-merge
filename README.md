@@ -15,3 +15,10 @@ The Chicago Public School system also provides data about the attendance boundar
 * [Elementary Schools](https://www.google.com/fusiontables/DataSource?docid=1_BkjK_60DUwSvJCozyOO53Q56lkbjrTv2bgpzp8#map:id=3)
 
 You can download the KML files for those maps from those locations (they are also included here in the source data folder). 
+
+We use GDAL to reproject the geojson file to Latitude-Longitude 
+
+```bash
+> ogr2ogr -f "GeoJSON" all_schools_ll.geojson all_schools.geojson -s_srs EPSG:102671 -t_srs EPSG:4326 
+> mv all_schools_ll.geojson all_schools.geojson
+```
